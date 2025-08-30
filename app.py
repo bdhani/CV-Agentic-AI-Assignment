@@ -4,7 +4,7 @@ import streamlit as st
 from openai import OpenAI
 from dotenv import load_dotenv
 
-load_dotenv()  # Loads variables from .env into environment
+load_dotenv() 
 
 api_key = os.getenv("PERPLEXITY_API_KEY")
 
@@ -13,15 +13,12 @@ api_key = os.getenv("PERPLEXITY_API_KEY")
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-
-# Initialize PerplexityPro client
 client = OpenAI(
-    api_key=api_key,  # set your PerplexityPro API key in env variable PERPLEXITY_API_KEY
+    api_key=api_key,  
     base_url="https://api.perplexity.ai"
 )
 
 
-# -------- Helpers --------
 def extract_text_from_pdf(file):
     text = ""
     with pdfplumber.open(file) as pdf:
@@ -82,8 +79,9 @@ def evaluate_answers(student_answers, course_text):
 
 
 # -------- Streamlit UI --------
-st.set_page_config(page_title="Teacher AI - Computer Vision", layout="wide")
-st.title("📘 Teacher AI Tool for Computer Vision")
+st.set_page_config(page_title="Agentic AI for Computer Vision Exams", layout="wide")
+st.title("📘 Agentic AI Tool for Computer Vision")
+st.write("Made by B. Surat Dhani")
 
 
 tabs = st.tabs(["📝 Generate Questions", "📊 Evaluate Student Answers"])
